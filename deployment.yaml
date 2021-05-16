@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bakehouse-deployment
+  labels:
+    app: bakehouse
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bakehouse
+  template:
+    metadata:
+      labels:
+        app: bakehouse
+    spec:
+      containers:
+      - name: bakehouse
+        image: muhammadatef/bakehouse:latest
+        ports:
+        - containerPort: 80
