@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('deploy pods') {
             steps {
-                sh "minikube up"
+                sh "minikube start"
                 sh "kubectl apply -f deployment.yaml "
                 sh "kubectl apply -f service.yaml" 
                 sh "minikube service --url hostname-service"                
