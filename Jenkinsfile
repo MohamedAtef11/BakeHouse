@@ -3,10 +3,11 @@ pipeline {
     stages {
         stage('deploy pods') {
             steps {
-                
-                sh "kubectl apply -f deployment.yaml "
-                sh "kubectl apply -f service.yaml  " 
-                 
+                withCredentials([file(credentialsId: 'kube.config', variable: 'kube')]) {
+
+                sh "kubectl apply -f deployment.yaml  --kubeconfig $kube"
+                sh "kubectl apply -f service.yaml  --kubeconfig $kube" 
+                 }
             }
         }
     }
