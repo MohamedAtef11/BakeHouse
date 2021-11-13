@@ -5,7 +5,7 @@ pipeline {
         
         stage('Build and push images ') {
             steps {
-                sh "sudo docker login -u '$Dockerhub_username' -p '$Dockerhub_password'"
+                sh "sudo docker login -u '$dockerhub_username' -p '$dockerhub_password'"
 
                 sh "sudo docker build -t muhammadatef/BakeHouse:latest -t muhammadatef/BakeHouse:\$(git rev-parse HEAD) -f ."
                 sh "sudo docker push muhammadatef/BakeHouse:latest" 
