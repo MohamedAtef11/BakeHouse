@@ -11,9 +11,9 @@ pipeline {
         stage('Build and push images ') {
             steps {
 
-                sh "sudo docker build -t muhammadatef/BakeHouse:latest -t muhammadatef/BakeHouse:\$(git rev-parse HEAD) -f ."
-                sh "sudo docker push muhammadatef/BakeHouse:latest" 
-                sh "sudo docker push muhammadatef/BakeHouse:\$(git rev-parse HEAD)" 
+                sh " docker build -t muhammadatef/BakeHouse:latest -t muhammadatef/BakeHouse:\$(git rev-parse HEAD) -f ."
+                sh " docker push muhammadatef/BakeHouse:latest" 
+                sh " docker push muhammadatef/BakeHouse:\$(git rev-parse HEAD)" 
 
                 
             }
