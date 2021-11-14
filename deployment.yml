@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: bakehouse
+  name: bakehouse
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bakehouse
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: bakehouse
+    spec:
+      containers:
+      - image: muhammadatef/bakehouse
+        name: bakehouse
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
