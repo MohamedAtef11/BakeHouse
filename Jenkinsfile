@@ -12,6 +12,7 @@ pipeline {
                 sh "sudo docker build -t muhammadatef/bakehouse:latest ."
                 sh "sudo docker login -u '$USERNAME' -p '$PASSWORD'"
                 sh "sudo docker push muhammadatef/bakehouse:latest" 
+                 
                 }
 
             }
@@ -20,6 +21,7 @@ pipeline {
         stage('Deploy using k8s') {
             
             steps {
+                sh "/usr/local/bin/kubectl delete --kubeconfig=/var/lib/jenkins/config -f ."
                 sh "/usr/local/bin/kubectl  apply --kubeconfig=/var/lib/jenkins/config -f ."
             }
         }
