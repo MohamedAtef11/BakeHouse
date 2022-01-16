@@ -18,12 +18,12 @@ pipeline {
             }
         }
         
-        stage('Deploy using k8s') {
+        // stage('Deploy using k8s') {
             
-            steps {
-                sh "/usr/local/bin/kubectl delete --kubeconfig=/var/lib/jenkins/config -f ."
-                sh "/usr/local/bin/kubectl  apply --kubeconfig=/var/lib/jenkins/config -f ."
-            }
-        }
+        //     steps {
+        //         sh "/usr/local/bin/kubectl delete --kubeconfig=/var/lib/jenkins/config -f ."
+        //         sh "/usr/local/bin/kubectl  apply --kubeconfig=/var/lib/jenkins/config -f ."
+        //     }
+        // }
     }
 }
